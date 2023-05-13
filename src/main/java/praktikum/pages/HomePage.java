@@ -1,5 +1,6 @@
 package praktikum.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,49 +25,62 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
+    @Step("Клик на \"Персональный аккаунт\"")
     public void clickPersonalAccount() {
         driver.findElement(buttonPersonalAccount).click();
     }
 
+    @Step("Клик на \"Войти в аккаунт\"")
     public void clickOnButtonSignIn() {
         driver.findElement(buttonSignIn).click();
     }
 
+    @Step("Проверка видимости кнопки \"Оформить заказ\"")
     public Boolean checkVisibleButton() {
         return driver.findElement(buttonOrder).isDisplayed();
     }
 
+    @Step("Проверка видимости поля \"Соберите бургер\"")
     public Boolean checkVisibleInscription() {
         return driver.findElement(inscriptionIsVisible).isDisplayed();
     }
+
+    @Step("Клик по кнопке \"Конструктор\"")
     public void clickOnButtonConstructor() {
         driver.findElement(buttonConstructor).click();
     }
 
+    @Step("Клик по секции \"Начинки\"")
     public void clickOnSectionFilling() {
         driver.findElement(sectionFilling).click();
     }
 
+    @Step("Проверка видимости элемента в разделе \"Начинки\"")
     public Boolean checkVisibleFilling() {
         return driver.findElement(fillingIsVisible).isDisplayed();
     }
 
+    @Step("Клик по секции \"Соусы\"")
     public void clickOnSectionSauce() {
         driver.findElement(sectionSauce).click();
     }
 
+    @Step("Проверка видимости элемента в разделе \"Соусы\"")
     public Boolean checkVisibleSauce() {
         return driver.findElement(sauceIsVisible).isDisplayed();
     }
 
+    @Step("Клик по секции \"Булки\"")
     public void clickOnSectionBun() {
         driver.findElement(sectionBun).click();
     }
 
+    @Step("Проверка видимости элемента раздела \"Булки\"")
     public Boolean checkVisibleBun() {
         return driver.findElement(bunIsVisible).isDisplayed();
     }
 
+    @Step("Скролл до элемента раздела \"Начинки\"")
     public void scroll() {
         WebElement element = driver.findElement(fillingIsVisible);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);

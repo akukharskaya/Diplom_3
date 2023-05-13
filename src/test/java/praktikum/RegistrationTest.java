@@ -2,7 +2,6 @@ package praktikum;
 
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import praktikum.requests.UserRequest;
 import static org.junit.Assert.assertEquals;
 
@@ -24,7 +23,7 @@ public class RegistrationTest extends BaseTest {
         registrationPage.register(registrationRequest);
         registrationPage.clickOnButtonRegistration();
 
-        assertEquals(expected,driver.findElement(By.xpath(".//*[text()='Вход']")).getText());
+        assertEquals(expected,loginPage.findInscription());
 
         userService.delete(registrationRequest);
     }
@@ -44,6 +43,6 @@ public class RegistrationTest extends BaseTest {
         registrationPage.register(registrationRequest);
         registrationPage.clickOnButtonRegistration();
 
-        assertEquals(expected,driver.findElement(By.xpath(".//*[@class='input__error text_type_main-default']")).getText());
+        assertEquals(expected,registrationPage.findError());
     }
 }
